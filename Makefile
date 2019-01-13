@@ -6,6 +6,9 @@ docker/up:
 docker/down:
 	docker-compose down
 
+docker/logs:
+	docker-compose logs -f
+
 
 setup: composer.phar
 	./composer.phar install --no-dev --prefer-dist --optimize-autoloader --no-interaction
