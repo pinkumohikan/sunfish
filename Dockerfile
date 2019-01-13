@@ -1,7 +1,7 @@
 FROM php:7.3-fpm-alpine
 
 COPY ./docker_files/php/php-fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
-COPY ./docker_files/php/php/php.ini /usr/local/etc/php/php.ini
+COPY ./docker_files/php/php/php.ini /usr/local/etc/php/conf.d/php.ini
 
 RUN apk add --no-cache nginx make
 COPY ./docker_files/nginx/ /etc/nginx
