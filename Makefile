@@ -1,7 +1,7 @@
 .PHONY: docker/* setup try dev
 
 docker/up:
-	docker-compose up --detach --build --remove-orphans
+	docker-compose up --d --build --remove-orphans
 
 docker/down:
 	docker-compose down
