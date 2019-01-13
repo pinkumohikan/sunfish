@@ -8,3 +8,6 @@ composer.phar:
 
 try:
 	php bin/try.php
+
+dev:
+	php -S 0.0.0.0:8080 -t ./public
