@@ -15,13 +15,16 @@
 
 
 ## Usage
-*make docker/up*
+**make docker/up**
+
 .env内 `APP_PORT` で指定したポートでWeb APIサーバが起動します。
 
-*make docker/down*
+**make docker/down**
+
 Web APIサーバが終了します。
 
-*make docker/logs*
+**make docker/logs**
+
 Web APIサーバのログをtailします。
 
 
