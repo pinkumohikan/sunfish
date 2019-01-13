@@ -12,9 +12,7 @@ $app->get("/margin_stocks", function (Request $request, Response $response) {
     $facade = \Pink\MarginStock\Facade::create();
     $stocks = $facade->fetch();
 
-    $response->withJson($stocks);
-
-    return $response;
+    return $response->withJson($stocks);
 });
 
 $app->run();
