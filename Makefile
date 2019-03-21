@@ -9,6 +9,11 @@ docker/down:
 docker/logs:
 	docker-compose logs -f
 
+docker/ping:
+docker/ping:
+	test -n "$(docker ps -q)" || echo "container is nothing" && exit 1
+	docker exec $(docker ps -q) curl -sSf --retry 5 --retry-connrefused -o /dev/null --dump-header - http://localhost/margin_stocks
+
 
 setup: composer.phar
 	./composer.phar install --no-dev --prefer-dist --optimize-autoloader --no-interaction
@@ -22,7 +27,3 @@ try:
 
 dev:
 	php -S 0.0.0.0:8080 -t ./public
-
-ping: port=8888
-ping:
-	curl -sSf http://localhost:${port}/margin_stocks -o /dev/null --dump-header -

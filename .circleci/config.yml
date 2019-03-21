@@ -16,4 +16,4 @@ jobs:
 
       - run: make
 
-      - run: sleep 5 && make ping
+      - run: make docker/ping
