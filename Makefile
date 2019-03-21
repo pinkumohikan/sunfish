@@ -22,3 +22,6 @@ try:
 
 dev:
 	php -S 0.0.0.0:8080 -t ./public
+
+ping:
+	curl -sSf http://localhost:8080/margin_stocks -o /dev/null --dump-header -
