@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-        - image: alpine:latest
+        - image: circleci/buildpack-deps:latest
     steps:
       - checkout
 
