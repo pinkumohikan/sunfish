@@ -16,7 +16,4 @@ jobs:
 
       - run: make
 
-      # waiting for up
-      - run: sleep 5
-
       - run: make docker/ping
