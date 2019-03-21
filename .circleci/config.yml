@@ -6,25 +6,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.3-node-browsers
+        - image: alpine:latest
     steps:
       - checkout
 
-      - run: sudo apt update
-      - run: sudo docker-php-ext-install gd zip
+      - setup_remote_docker
 
-      - restore_cache:
-          keys:
-            - dependencies-{{ checksum "composer.json" }}
+      - run: apk add --no-cache make
 
-      - run: make setup
-
-      - run: make dev &
+      - run: make
 
       - run: sleep 5 && curl -sSf http://localhost:8080/margin_stocks
-
-      - save_cache:
-          key: dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
-
