@@ -1,5 +1,7 @@
 # Sunfish
 
+[![CircleCI](https://circleci.com/gh/pinkumohikan/sunfish/tree/master.svg?style=svg)](https://circleci.com/gh/pinkumohikan/sunfish/tree/master)
+
 ## What is this?
 日本取引所グループ (JPX) の公式サイトから、貸借銘柄を取得しやすくするためのWrapper Web API。
 * [制度信用・貸借銘柄一覧 | 日本取引所グループ](https://www.jpx.co.jp/listing/others/margin/index.html)
