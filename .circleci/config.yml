@@ -1,0 +1,27 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.3-node-browsers
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "composer.json" }}
+
+      - run: make setup
+
+      - run: make dev &
+
+      - run: sleep 5 && curl -sSf http://localhost:8080/margin_stocks
+
+      - save_cache:
+          key: dependencies-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+
