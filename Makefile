@@ -23,5 +23,6 @@ try:
 dev:
 	php -S 0.0.0.0:8080 -t ./public
 
+ping: port=8888
 ping:
-	curl -sSf http://localhost:8080/margin_stocks -o /dev/null --dump-header -
+	curl -sSf http://localhost:${port}/margin_stocks -o /dev/null --dump-header -
