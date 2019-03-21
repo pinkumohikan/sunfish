@@ -12,8 +12,6 @@ jobs:
 
       - setup_remote_docker
 
-      - run: apk add --no-cache make
-
       - run: make
 
       - run: sleep 5 && curl -sSf http://localhost:8080/margin_stocks
