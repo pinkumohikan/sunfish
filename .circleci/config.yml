@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
 
+      - run: sudo apt update
+      - run: sudo docker-php-ext-install gd zip
+
       - restore_cache:
           keys:
             - dependencies-{{ checksum "composer.json" }}
