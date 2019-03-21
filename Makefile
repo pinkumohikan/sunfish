@@ -11,7 +11,7 @@ docker/logs:
 
 docker/ping:
 docker/ping:
-	test -n "$(docker ps -q)" || echo "container is nothing" && exit 1
+	until [ $(docker ps -q) ]; do sleep 1 && echo "waiting for up container"; done
 	docker exec $(docker ps -q) curl -sSf --retry 5 --retry-connrefused -o /dev/null --dump-header - http://localhost/margin_stocks
 
 
