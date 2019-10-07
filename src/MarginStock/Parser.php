@@ -8,12 +8,12 @@ use PhpOffice\PhpSpreadsheet\Exception as SpreadsheetException;
 
 class Parser
 {
-    public function parse(MarginStockFilePath $filePath): array
+    public function parse(MarginStockFile $filePath): array
     {
         $indexSheet = null;
 
         try {
-            $sheet = IOFactory::load($filePath->get());
+            $sheet = IOFactory::load($filePath->getPath());
             $indexSheet = $sheet->getSheet($sheet->getSheetCount() - 1);
         } catch (ReaderException|SpreadsheetException $e) {
             throw new \RuntimeException("failed to load xls file", $e->getCode(), $e);

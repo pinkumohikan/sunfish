@@ -2,7 +2,7 @@
 
 namespace Pink\MarginStock;
 
-class MarginStockFilePath {
+class MarginStockFile {
     private $path;
 
     public function __construct(string $path)
@@ -15,7 +15,7 @@ class MarginStockFilePath {
         unlink($this->path);
     }
 
-    public function get(): string
+    public function getPath(): string
     {
         return $this->path;
     }

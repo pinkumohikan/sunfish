@@ -15,7 +15,7 @@ class Downloader
         $this->guzzle = $guzzle;
     }
 
-    public function download(): MarginStockFilePath
+    public function download(): MarginStockFile
     {
         $res = $this->guzzle->get(self::JPX_MARGIN_STOCK_XLS_URL);
 
@@ -23,7 +23,7 @@ class Downloader
         $file = new \SplFileObject($xlsFile, 'w');
         $file->fwrite($res->getBody()->getContents());
 
-        return new MarginStockFilePath($file->getPathname());
+        return new MarginStockFile($file->getPathname());
     }
 }
 
